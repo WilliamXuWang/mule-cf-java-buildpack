@@ -1,0 +1,33 @@
+---
+language: mule
+
+url_to_dependency_map:
+  - match: api-gateway-distribution-standalone-(\d+\.\d+\.\d+).tar.gz
+    name: apigateway
+    version: $1
+  
+dependencies:
+  - name: apigateway
+    version: 2.1.0
+    uri: https://s3-eu-west-1.amazonaws.com/mule-cf-repo/api-gateway/api-gateway-distribution-standalone-2.1.0.tar.gz
+    cf_stacks:
+      - lucid64
+    md5: cc3e150de7559ef06efc794390d0e411
+  - name: oracle_jre
+    version: 1.8.0_30
+    uri: https://s3-eu-west-1.amazonaws.com/mule-cf-repo/oracle-jre/jdk-8u60-linux-x64.gz
+    cf_stacks:
+      - lucid64
+    md5: b8ca513d4f439782c019cb78cd7fd101
+    
+exclude_files:
+  - .git/
+  - .gitignore
+  - .gitmodules
+  - .rspec
+  - cf_spec/
+  - log/
+  - test/
+  - buildpack-packager/
+  - mule_buildpack-*v*.zip
+
